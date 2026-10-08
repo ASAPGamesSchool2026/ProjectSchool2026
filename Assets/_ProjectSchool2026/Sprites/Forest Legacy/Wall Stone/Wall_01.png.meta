@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cbabdac5b5432ec4192f6c2b8f1c04fa
+guid: 8bef753ba1539e64f83f4bd0516c4807
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3891857546046155858
-    second: trail_0
+      213: -420487153827034136
+    second: Wall_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -77,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,111 +115,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trail_0
+      name: Wall_01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 49
-        height: 48
+        y: 22
+        width: 160
+        height: 127
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25c218471d7a20630800000000000000
-      internalID: 3891857546046155858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trail_1
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 48
-        width: 31
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f611d42b9101e42438dc4c87565c5b71
-      internalID: 304423768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trail_2
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 33
-        width: 32
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1a91122fff01ad4e883123bdea26280
-      internalID: -117203082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trail_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21287b4a435965044a05373c77491d48
-      internalID: 254374413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trail_4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73a74b22d5368a54887559c7321e09b6
-      internalID: 1670657213
+      spriteID: 8eb468359212a2af0800000000000000
+      internalID: -420487153827034136
       vertices: []
       indices: 
       edges: []
@@ -228,7 +140,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9ae5bb81d1c1bef49b297755ae8cde59
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,15 +148,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      trail_0: 3891857546046155858
-      trail_1: 304423768
-      trail_2: -117203082
-      trail_3: 254374413
-      trail_4: 1670657213
+      Wall_01_0: -420487153827034136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
