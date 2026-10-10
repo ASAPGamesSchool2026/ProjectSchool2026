@@ -112,3 +112,6 @@ x86/
 # Unity package dependencies must be included in the course repository.
 !/Packages/manifest.json
 !/Packages/packages-lock.json
+
+# Claude Code
+/CLAUDE.md
