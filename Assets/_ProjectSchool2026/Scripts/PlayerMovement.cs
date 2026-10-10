@@ -6,9 +6,13 @@ namespace ProjectSchool2026
 	[RequireComponent(typeof(Rigidbody2D))]
 	public class PlayerMovement : MonoBehaviour
 	{
-		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
+		[Header("Player Settings")]
 		[SerializeField] private Rigidbody2D _rigidbody;
-
+		[SerializeField] private PlayerAnimation _playerAnimation;
+		
+		[Header("Player Parametrs")]
+		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
+		
 		private Vector2 _inputDirection;
 
 		private void Awake()
@@ -18,6 +22,11 @@ namespace ProjectSchool2026
 				_rigidbody = GetComponent<Rigidbody2D>();
 			}
 
+			if (_playerAnimation == null)
+			{
+				_playerAnimation = GetComponentInChildren<PlayerAnimation>();
+			}
+
 			_rigidbody.gravityScale = 0f;
 			_rigidbody.freezeRotation = true;
 		}
@@ -25,6 +34,7 @@ namespace ProjectSchool2026
 		public void OnMove(InputAction.CallbackContext context)
 		{
 			_inputDirection = context.ReadValue<Vector2>();
+			_playerAnimation.AnimateMovement(_inputDirection);
 		}
 
 		private void FixedUpdate()
