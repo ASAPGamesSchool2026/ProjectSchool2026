@@ -1,5 +1,6 @@
+using ProjectSchool2026.Manager;
+using ProjectSchool2026.UI.Artifact;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace ProjectSchool2026.Player
 {
@@ -14,7 +15,10 @@ namespace ProjectSchool2026.Player
 		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
 		
 		private Vector2 _inputDirection;
+		
 		private bool _isInteracting;
+		private bool _canInteract;
+		private bool _canMove;
 
 		private void Awake()
 		{
@@ -30,6 +34,7 @@ namespace ProjectSchool2026.Player
 
 			_rigidbody.gravityScale = 0f;
 			_rigidbody.freezeRotation = true;
+			_canMove = true;
 		}
 
 		public void SetInputDirection(Vector2 inputDirection)
@@ -41,16 +46,52 @@ namespace ProjectSchool2026.Player
 		public void SetInteracting(bool isInteracting)
 		{
 			_isInteracting = isInteracting;
+
+			if (_canInteract && isInteracting)
+			{
+				_canInteract = false;
+				InteractionManager.Instance.InteractWithArtifact(this);
+				_canMove = false;
+			}
+		}
+
+		public void AllowMovement()
+		{
+			_canMove = true;
 		}
 
 		private void AnimateByInputDirection(Vector2 inputDirection)
 		{
-			_playerAnimation.AnimateMovement(inputDirection);
+			if (_canMove)
+			{
+				_playerAnimation.AnimateMovement(inputDirection);
+			}
 		}
 		
 		private void FixedUpdate()
 		{
-			_rigidbody.linearVelocity = _inputDirection.normalized * _moveSpeed;
+			if (_canMove)
+			{
+				_rigidbody.linearVelocity = _inputDirection.normalized * _moveSpeed;
+			}
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			ArtifactTip artifactTip = other.GetComponent<ArtifactTip>();
+			if (artifactTip != null)
+			{
+				_canInteract = true;
+			}
+		}
+
+		private void OnTriggerExit2D(Collider2D other)
+		{
+			ArtifactTip artifactTip = other.GetComponent<ArtifactTip>();
+			if (artifactTip != null)
+			{
+				_canInteract = false;
+			}
 		}
 
 		private void OnDisable()
