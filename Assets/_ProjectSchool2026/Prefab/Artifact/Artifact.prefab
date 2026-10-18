@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490384070740254903}
   - component: {fileID: 7793450215324974038}
-  - component: {fileID: 2059874033526555064}
+  - component: {fileID: 7030558442120114098}
   - component: {fileID: 4701552216496929646}
   m_Layer: 0
   m_Name: Artifact
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &2059874033526555064
+--- !u!114 &7030558442120114098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,10 +282,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3513357850779443566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df6deb0bfaf4fc4a4004d6212549ee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 96d54f15d7d04129ac6fe32aae28a5d2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArtifactItem
-  _artifactName: "\u041B\u0435\u0441\u043D\u043E\u0439 \u0430\u0440\u0442\u0435\u0444\u0430\u043A\u0442"
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.UI.Artifact.ArtifactTip
+  _canvas: {fileID: 6173249607378187804}
+  _imageTip: {fileID: 4454081917442548090}
+  _animationScale: {x: 0.85, y: 0.85, z: 0.85}
+  animationDuration: 0.5
 --- !u!61 &4701552216496929646
 BoxCollider2D:
   m_ObjectHideFlags: 0
