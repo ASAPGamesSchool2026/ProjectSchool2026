@@ -10,7 +10,19 @@ namespace ProjectSchool2026
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			// Проверьте игрока, зарегистрируйте сбор и выключите предмет.
-		}
+			if (other.attachedRigidbody == null)
+			{
+				return;
+			}
+            if (!other.attachedRigidbody.TryGetComponent<PlayerMovement>(out _))
+            {
+                return;
+            }
+			var explorationManager = ExplorationManager.Instance;
+			if (explorationManager.CollectArtifact(this))
+			{
+				gameObject.SetActive(false);
+			}
+        }
 	}
 }
