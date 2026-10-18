@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace ProjectSchool2026
+namespace ProjectSchool2026.Player
 {
     public class PlayerAnimation : MonoBehaviour
     {

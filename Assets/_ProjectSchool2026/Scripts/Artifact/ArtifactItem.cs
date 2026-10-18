@@ -1,6 +1,8 @@
+using ProjectSchool2026.Manager;
+using ProjectSchool2026.Player;
 using UnityEngine;
 
-namespace ProjectSchool2026
+namespace ProjectSchool2026.Artifact
 {
 	public class ArtifactItem : MonoBehaviour
 	{
@@ -15,7 +17,6 @@ namespace ProjectSchool2026
 				return;
 			}
 
-			// Коллайдер игрока может находиться на дочернем объекте.
 			if (!other.attachedRigidbody.TryGetComponent<PlayerMovement>(out _))
 			{
 				return;
