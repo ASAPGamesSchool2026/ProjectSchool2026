@@ -39,7 +39,7 @@ namespace ProjectSchool2026.UI.Artifact
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            PlayerMovement player = other.GetComponentInParent<PlayerMovement>();
+            Player.Player player = other.GetComponentInParent<Player.Player>();
 
             if (player != null)
             {
@@ -54,7 +54,7 @@ namespace ProjectSchool2026.UI.Artifact
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            PlayerMovement player = other.GetComponentInParent<PlayerMovement>();
+            Player.Player player = other.GetComponentInParent<Player.Player>();
             if (player != null)
             {
                 _sequence.Pause();

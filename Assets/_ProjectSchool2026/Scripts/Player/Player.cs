@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace ProjectSchool2026.Player
 {
 	[RequireComponent(typeof(Rigidbody2D))]
-	public class PlayerMovement : MonoBehaviour
+	public class Player : MonoBehaviour
 	{
 		[Header("Player Settings")]
 		[SerializeField] private Rigidbody2D _rigidbody;
@@ -14,6 +14,7 @@ namespace ProjectSchool2026.Player
 		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
 		
 		private Vector2 _inputDirection;
+		private bool _isInteracting;
 
 		private void Awake()
 		{
@@ -31,12 +32,22 @@ namespace ProjectSchool2026.Player
 			_rigidbody.freezeRotation = true;
 		}
 
-		public void OnMove(InputAction.CallbackContext context)
+		public void SetInputDirection(Vector2 inputDirection)
 		{
-			_inputDirection = context.ReadValue<Vector2>();
-			_playerAnimation.AnimateMovement(_inputDirection);
+			_inputDirection = inputDirection;
+			AnimateByInputDirection(inputDirection);
 		}
 
+		public void SetInteracting(bool isInteracting)
+		{
+			_isInteracting = isInteracting;
+		}
+
+		private void AnimateByInputDirection(Vector2 inputDirection)
+		{
+			_playerAnimation.AnimateMovement(inputDirection);
+		}
+		
 		private void FixedUpdate()
 		{
 			_rigidbody.linearVelocity = _inputDirection.normalized * _moveSpeed;

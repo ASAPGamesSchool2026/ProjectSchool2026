@@ -51,7 +51,6 @@ namespace ProjectSchool2026.Player
             
             _idleSequence.Pause();
             transform.localScale = _initialScale;
-            
             if (inputDirection.x != 0)
             {
                 _spriteRenderer.flipX = inputDirection.x < 0;

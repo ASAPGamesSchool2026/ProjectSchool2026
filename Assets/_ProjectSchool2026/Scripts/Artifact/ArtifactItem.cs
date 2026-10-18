@@ -17,7 +17,7 @@ namespace ProjectSchool2026.Artifact
 				return;
 			}
 
-			if (!other.attachedRigidbody.TryGetComponent<PlayerMovement>(out _))
+			if (!other.attachedRigidbody.TryGetComponent<Player.Player>(out _))
 			{
 				return;
 			}
