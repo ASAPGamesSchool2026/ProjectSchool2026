@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   _rigidbody: {fileID: 4462204275001919443}
-  _playerAnimation: {fileID: 0}
+  _playerAnimation: {fileID: 5619252425009023001}
   _moveSpeed: 4
 --- !u!50 &4462204275001919443
 Rigidbody2D:
@@ -370,3 +370,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f781c5ae5ef64d4aa9ffabd4e607fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.PlayerAnimation
+  _scaleOffsetAnimation: {x: 0.85, y: 0.85, z: 0.85}
+  _scaleAnimateDuration: 0.85
