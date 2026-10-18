@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using ProjectSchool2026.Artifact;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjectSchool2026.Manager
 {
     public class InteractionManager : MonoBehaviour
     {
         [SerializeField] private GameObject _challengeView;
-
-        private Player.Player _player;
+        [SerializeField] private Player.Player _player;
+        
+        private ArtifactItem _currentArtifactItem;
         
         public static InteractionManager Instance;
 
@@ -23,22 +26,31 @@ namespace ProjectSchool2026.Manager
             Destroy(gameObject);
         }
 
-        public void InteractWithArtifact(Player.Player player)
+        public void InteractWithArtifact(ArtifactItem artifactItem)
         {
-            _player = player;
-            if (_player != null)
+            if (_currentArtifactItem == null)
             {
                 _challengeView?.SetActive(true);
+                _currentArtifactItem = artifactItem;
+            }
+        }
+
+        public void ApplyArtifactChallenge()
+        {
+            Debug.Log("Applying artifact challenge");
+            if (_currentArtifactItem != null)
+            {
+                SceneManager.LoadScene(_currentArtifactItem.SceneName);
             }
         }
 
         public void CancelInteraction()
         {
             _challengeView?.SetActive(false);
-            if (_player != null)
+            if (_player != null && _currentArtifactItem != null)
             {
                 _player.AllowMovement();
-                _player = null;
+                _currentArtifactItem = null;
             }
         }
     }

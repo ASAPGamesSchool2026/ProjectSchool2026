@@ -1,3 +1,4 @@
+using ProjectSchool2026.Artifact;
 using ProjectSchool2026.Manager;
 using ProjectSchool2026.UI.Artifact;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace ProjectSchool2026.Player
 		[Header("Player Parametrs")]
 		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
 		
+		private ArtifactItem _currentArtifactItem;
 		private Vector2 _inputDirection;
 		
 		private bool _isInteracting;
@@ -47,10 +49,9 @@ namespace ProjectSchool2026.Player
 		{
 			_isInteracting = isInteracting;
 
-			if (_canInteract && isInteracting)
+			if (_canInteract && _isInteracting)
 			{
-				_canInteract = false;
-				InteractionManager.Instance.InteractWithArtifact(this);
+				InteractionManager.Instance.InteractWithArtifact(_currentArtifactItem);
 				_canMove = false;
 			}
 		}
@@ -78,18 +79,20 @@ namespace ProjectSchool2026.Player
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			ArtifactTip artifactTip = other.GetComponent<ArtifactTip>();
-			if (artifactTip != null)
+			ArtifactItem artifact = other.GetComponent<ArtifactItem>();
+			if (artifact != null)
 			{
+				_currentArtifactItem = artifact;
 				_canInteract = true;
 			}
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
-			ArtifactTip artifactTip = other.GetComponent<ArtifactTip>();
-			if (artifactTip != null)
+			ArtifactItem artifact = other.GetComponent<ArtifactItem>();
+			if (artifact != null)
 			{
+				_currentArtifactItem = null;
 				_canInteract = false;
 			}
 		}
