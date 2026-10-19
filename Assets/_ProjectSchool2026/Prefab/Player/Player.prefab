@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6575316545870375099}
   - component: {fileID: 5555180519228588060}
   - component: {fileID: 4462204275001919443}
+  - component: {fileID: 1478015449859283539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -62,13 +63,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5555180519228588060}
-        m_TargetAssemblyTypeName: ProjectSchool2026.PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1478015449859283539}
+        m_TargetAssemblyTypeName: ProjectSchool2026.Player.PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab23630632d3214588620150b16f2e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Player.Player
   _rigidbody: {fileID: 4462204275001919443}
   _playerAnimation: {fileID: 5619252425009023001}
   _moveSpeed: 4
@@ -195,6 +196,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1478015449859283539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249886447264548611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081797d47dfa49689186340ade93cbe1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Player.PlayerController
+  _player: {fileID: 5555180519228588060}
 --- !u!1 &316562818085929476
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +383,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f781c5ae5ef64d4aa9ffabd4e607fba9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.PlayerAnimation
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Player.PlayerAnimation
   _scaleOffsetAnimation: {x: 0.85, y: 0.85, z: 0.85}
   _scaleAnimateDuration: 0.85

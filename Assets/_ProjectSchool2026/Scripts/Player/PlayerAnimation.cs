@@ -1,7 +1,7 @@
-﻿using DG.Tweening;
+using DG.Tweening;
 using UnityEngine;
 
-namespace ProjectSchool2026
+namespace ProjectSchool2026.Player
 {
     public class PlayerAnimation : MonoBehaviour
     {
@@ -51,7 +51,6 @@ namespace ProjectSchool2026
             
             _idleSequence.Pause();
             transform.localScale = _initialScale;
-            
             if (inputDirection.x != 0)
             {
                 _spriteRenderer.flipX = inputDirection.x < 0;

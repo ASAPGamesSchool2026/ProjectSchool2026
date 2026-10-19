@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using ProjectSchool2026.Artifact;
+using ProjectSchool2026.UI.Artifact;
 using UnityEngine;
 
-namespace ProjectSchool2026
+namespace ProjectSchool2026.Manager
 {
 	public class ExplorationManager : MonoBehaviour
 	{

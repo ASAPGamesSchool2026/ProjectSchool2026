@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace ProjectSchool2026
+namespace ProjectSchool2026.UI.Artifact
 {
 	[RequireComponent(typeof(TextMeshProUGUI))]
 	public class ArtifactCounterView : MonoBehaviour

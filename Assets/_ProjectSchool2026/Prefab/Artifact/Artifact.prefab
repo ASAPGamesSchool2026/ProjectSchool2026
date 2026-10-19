@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7793450215324974038}
   - component: {fileID: 2059874033526555064}
   - component: {fileID: 4701552216496929646}
+  - component: {fileID: 1069460483969048701}
   m_Layer: 0
   m_Name: Artifact
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 9159562707671129227, guid: 9e8fa68e346ac1f40b4d03c5a2318cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,8 +106,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df6deb0bfaf4fc4a4004d6212549ee8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArtifactItem
-  _artifactName: Лесной артефакт
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Artifact.ArtifactItem
+  _sceneName: ChallengeScene
 --- !u!61 &4701552216496929646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,5 +152,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1069460483969048701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513357850779443566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d54f15d7d04129ac6fe32aae28a5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.UI.Artifact.ArtifactTip
+  _canvas: {fileID: 0}
+  _imageTip: {fileID: 0}
+  _animationScale: {x: 0.85, y: 0.85, z: 0.85}
+  animationDuration: 0.5
