@@ -1,4 +1,5 @@
-﻿using ProjectSchool2026.Artifact;
+﻿using _ProjectSchool2026.UI.PopUp;
+using ProjectSchool2026.Artifact;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,7 @@ namespace ProjectSchool2026.Manager
 {
     public class InteractionManager : MonoBehaviour
     {
-        [SerializeField] private GameObject _challengeView;
+        [SerializeField] private PopUpView _challengeView;
         [SerializeField] private Player.Player _player;
         
         private ArtifactItem _currentArtifactItem;
@@ -20,7 +21,7 @@ namespace ProjectSchool2026.Manager
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
 
-               _challengeView?.SetActive(false);
+               _challengeView?.gameObject.SetActive(false);
                 return;
             }
             Destroy(gameObject);
@@ -30,7 +31,7 @@ namespace ProjectSchool2026.Manager
         {
             if (_currentArtifactItem == null)
             {
-                _challengeView?.SetActive(true);
+                _challengeView?.EnableView();
                 _currentArtifactItem = artifactItem;
             }
         }
@@ -46,12 +47,14 @@ namespace ProjectSchool2026.Manager
 
         public void CancelInteraction()
         {
-            _challengeView?.SetActive(false);
+            _challengeView?.DisableView();
             if (_player != null && _currentArtifactItem != null)
             {
                 _player.AllowMovement();
                 _currentArtifactItem = null;
             }
         }
+
+        
     }
 }
