@@ -31,7 +31,8 @@ namespace ProjectSchool2026.Player
             _idleSequence = DOTween.Sequence()
                 .Append(transform.DOScale(_scaleOffsetAnimation, _scaleAnimateDuration))
                 .Append(transform.DOScale(_initialScale, _scaleAnimateDuration))
-                .SetLoops(-1, LoopType.Yoyo);
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetLink(gameObject);
             
         }
 

@@ -286,7 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df6deb0bfaf4fc4a4004d6212549ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Artifact.ArtifactItem
-  _sceneName: ChallengeScene
+  _artifactId: artifact_01
+  _sceneName: Challenge
 --- !u!114 &7030558442120114098
 MonoBehaviour:
   m_ObjectHideFlags: 0

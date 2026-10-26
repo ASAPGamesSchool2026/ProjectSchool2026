@@ -32,7 +32,8 @@ namespace ProjectSchool2026.UI.Artifact
                 _sequence = DOTween.Sequence()
                     .Append(_imageTip.transform.DOScale(_animationScale, animationDuration))
                     .Append(_imageTip.transform.DOScale(_originalScale, animationDuration))
-                    .SetLoops(-1, LoopType.Yoyo);
+                    .SetLoops(-1, LoopType.Yoyo)
+                    .SetLink(gameObject);
             }
         }
 

@@ -1010,6 +1010,46 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "LockGame",
+            "id": "300dbab0-bb74-49fd-8d3e-d85543ddfaeb",
+            "actions": [
+                {
+                    "name": "Hit",
+                    "type": "Button",
+                    "id": "bb64938d-8d33-4c12-8e9f-036c4fbd9c06",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "adb80477-9bf9-482f-9462-c0bb73eee583",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf7a0f72-cde6-4ef4-ac21-5b8e7426a43a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -2387,8 +2387,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256637809}
-        m_TargetAssemblyTypeName: ProjectSchool2026.Manager.InteractionManager, Assembly-CSharp
+      - m_Target: {fileID: 1996113118}
+        m_TargetAssemblyTypeName: _ProjectSchool2026.UI.PopUp.PopUpView, Assembly-CSharp
         m_MethodName: CancelInteraction
         m_Mode: 1
         m_Arguments:
@@ -2768,8 +2768,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256637809}
-        m_TargetAssemblyTypeName: ProjectSchool2026.Manager.InteractionManager, Assembly-CSharp
+      - m_Target: {fileID: 1996113118}
+        m_TargetAssemblyTypeName: _ProjectSchool2026.UI.PopUp.PopUpView, Assembly-CSharp
         m_MethodName: ApplyArtifactChallenge
         m_Mode: 1
         m_Arguments:
