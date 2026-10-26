@@ -53,6 +53,8 @@ namespace ProjectSchool2026.Player
 			{
 				InteractionManager.Instance.InteractWithArtifact(_currentArtifactItem);
 				_canMove = false;
+				_rigidbody.linearVelocity = Vector2.zero;
+				_playerAnimation.AnimateMovement(Vector2.zero);
 			}
 		}
 
