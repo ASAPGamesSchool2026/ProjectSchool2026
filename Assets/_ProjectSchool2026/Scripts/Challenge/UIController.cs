@@ -16,14 +16,14 @@ namespace ProjectSchool2026.Challenge
         {
             _inputAction = new InputSystemActions();
             _inputAction.Enable();
-            _inputAction.UI.Click.started += _bootstrap.Click;
             _inputAction.UI.Click.started += _clickManager.Click;
+            _inputAction.UI.Click.started += _bootstrap.Click;
         }
 
         private void OnDestroy()
         {
-            _inputAction.UI.Click.started -= _bootstrap.Click;
             _inputAction.UI.Click.started -= _clickManager.Click;
+            _inputAction.UI.Click.started -= _bootstrap.Click;
             _inputAction.Disable();
         }
     }

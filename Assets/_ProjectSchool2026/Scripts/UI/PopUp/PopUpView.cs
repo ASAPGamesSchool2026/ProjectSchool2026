@@ -9,8 +9,8 @@ namespace _ProjectSchool2026.UI.PopUp
 	public class PopUpView : MonoBehaviour
 	{
 		[Header("UI")]
-		[SerializeField] private TMP_Text _artifactNameText;
-		[SerializeField] private TMP_Text _gameDescriptionText;
+		[SerializeField] private TMP_Text _titleText;
+		[SerializeField] private TMP_Text _descriptionText;
 
 		[Header("Animation")]
 		[SerializeField] private float _animationDuration = 0.5f;
@@ -22,10 +22,10 @@ namespace _ProjectSchool2026.UI.PopUp
 			_animationDurationWait = new WaitForSeconds(_animationDuration);
 		}
 
-		public void SetInfo(string artifactName, string gameDescription)
+		public void SetInfo(string title, string description)
 		{
-			_artifactNameText.text = artifactName;
-			_gameDescriptionText.text = gameDescription;
+			_titleText.text = title;
+			_descriptionText.text = description;
 		}
 
 		public void EnableView()

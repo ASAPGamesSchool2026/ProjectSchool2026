@@ -1,4 +1,5 @@
-﻿using ProjectSchool2026.Challenge.Behaviour;
+﻿using System;
+using ProjectSchool2026.Challenge.Behaviour;
 using ProjectSchool2026.Challenge.Circle;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ namespace ProjectSchool2026.Challenge.Arrow
         [SerializeField, Range(-360f, 360f)] private float _speed;
 
         private bool _isRotating;
+        
+        public event Action OnDefaultZoneSelected;
+        public event Action OnHardZoneSelected;
+        public event Action OnWhiteZoneSelected;
         
         public override void Boot()
         {
@@ -37,16 +42,18 @@ namespace ProjectSchool2026.Challenge.Arrow
             if (isArrowInDefaultZone)
             {
                 Debug.Log("Попал в Default Zone");
+                OnDefaultZoneSelected?.Invoke();
                 return;
             }
 
             if (isArrowInHardZone)
             {
                 Debug.Log("Попал в Hard Zone");
+                OnHardZoneSelected?.Invoke();
                 return;
             }
             
-            Debug.Log("Попал в белую зону");
+            OnWhiteZoneSelected?.Invoke();
         }
 
         private bool CheckArrowInsideZone(float zoneCenter, float zoneWidth)
