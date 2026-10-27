@@ -1,4 +1,5 @@
-﻿using ProjectSchool2026.Challenge.Behaviour;
+using System;
+using ProjectSchool2026.Challenge.Behaviour;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ namespace ProjectSchool2026.Challenge.Timer
 
         private bool _timerRunning;
 
+        public event Action OnTimeIsUp;
+
         public override void Boot()
         {
             _arrow.OnHardZoneSelected += IncreaseTimeForSelection;
@@ -32,6 +35,11 @@ namespace ProjectSchool2026.Challenge.Timer
         private void StartTimer()
         {
             _timerRunning = true;
+        }
+
+        public void StopTimer()
+        {
+            _timerRunning = false;
         }
 
         private void Update()
@@ -46,6 +54,7 @@ namespace ProjectSchool2026.Challenge.Timer
                     _timerRunning = false;
                     _currentTime = 0;
                     _imageFilling.fillAmount = 0f;
+                    OnTimeIsUp?.Invoke();
                 }
             }
         }

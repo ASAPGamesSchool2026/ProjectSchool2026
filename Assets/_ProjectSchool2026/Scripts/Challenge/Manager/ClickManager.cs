@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ProjectSchool2026.Challenge.Behaviour;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -31,6 +31,11 @@ namespace ProjectSchool2026.Challenge.Manager
             }
             
             _isClickAvailable = true;
+        }
+
+        public void DisableClicks()
+        {
+            _isClickAvailable = false;
         }
 
         private void AppendAllClickableObjects()

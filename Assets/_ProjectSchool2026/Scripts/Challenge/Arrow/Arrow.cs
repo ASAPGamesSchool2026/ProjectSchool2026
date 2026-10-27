@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ProjectSchool2026.Challenge.Behaviour;
 using ProjectSchool2026.Challenge.Circle;
 using UnityEngine;
@@ -30,6 +30,11 @@ namespace ProjectSchool2026.Challenge.Arrow
         private void StartRotate()
         {
             _isRotating = true; 
+        }
+
+        public void StopRotate()
+        {
+            _isRotating = false;
         }
 
         private void TrySelectZone()

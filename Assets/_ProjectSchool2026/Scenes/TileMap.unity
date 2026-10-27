@@ -2386,19 +2386,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 229411517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1996113118}
-        m_TargetAssemblyTypeName: _ProjectSchool2026.UI.PopUp.PopUpView, Assembly-CSharp
-        m_MethodName: CancelInteraction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &229411517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,8 +2454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2418a46ddef547ca89e81dd2f3bfca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Manager.InteractionManager
-  _challengeView: {fileID: 1996113118}
-  _player: {fileID: 725364541}
 --- !u!4 &256637810
 Transform:
   m_ObjectHideFlags: 0
@@ -2767,19 +2753,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361764939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1996113118}
-        m_TargetAssemblyTypeName: _ProjectSchool2026.UI.PopUp.PopUpView, Assembly-CSharp
-        m_MethodName: ApplyArtifactChallenge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &361764939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45343,8 +45317,8 @@ Canvas:
   m_GameObject: {fileID: 1047750836}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 295221752}
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -46826,8 +46800,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fde2ef11cc47dbb78903905c8ca7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_ProjectSchool2026.UI.PopUp.PopUpView
-  _artifactNameText: {fileID: 2080422172}
-  _gameDescriptionText: {fileID: 1717231450}
+  _titleText: {fileID: 2080422172}
+  _descriptionText: {fileID: 1717231450}
+  _confirmButton: {fileID: 361764938}
+  _confirmButtonText: {fileID: 813948966}
+  _cancelButton: {fileID: 229411516}
   _animationDuration: 0.5
 --- !u!1 &2080422170
 GameObject:

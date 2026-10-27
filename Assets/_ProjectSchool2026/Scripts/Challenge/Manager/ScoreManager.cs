@@ -1,4 +1,5 @@
-﻿using ProjectSchool2026.Challenge.Behaviour;
+using System;
+using ProjectSchool2026.Challenge.Behaviour;
 using TMPro;
 using UnityEngine;
 
@@ -13,10 +14,13 @@ namespace ProjectSchool2026.Challenge.Manager
         [SerializeField, Range(0, 10)] private uint _scoreForDefaultZone;
         [SerializeField, Range(0, 10)] private uint _scoreForHardZone;
         [SerializeField, Range(0, 10)] private uint _penaltyScores;
+        [SerializeField] private uint _scoreToWin = 100;
 
         [SerializeField] private Arrow.Arrow _arrow;
 
         private uint _totalScore;
+
+        public event Action OnTargetScoreReached;
 
         public override void Boot()
         {
@@ -46,23 +50,32 @@ namespace ProjectSchool2026.Challenge.Manager
         {
             _totalScore += _scoreForDefaultZone;
             _scoreText.text = $"{_totalScore}";
+            CheckTargetScore();
         }
 
         private void AddScoresForHardZone()
         {
             _totalScore += _scoreForHardZone;
             _scoreText.text = $"{_totalScore}";
+            CheckTargetScore();
         }
 
+        private void CheckTargetScore()
+        {
+            if (_totalScore >= _scoreToWin)
+            {
+                OnTargetScoreReached?.Invoke();
+            }
+        }
 
         private void OnDestroy()
         {
             if (_arrow != null)
             {
                 _arrow.OnHardZoneSelected -= AddScoresForHardZone;
-                _arrow.OnDefaultZoneSelected += AddScoresForDefaultZone;
+                _arrow.OnDefaultZoneSelected -= AddScoresForDefaultZone;
+                _arrow.OnWhiteZoneSelected -= ReduceScores;
             }
-            
         }
     }
 }

@@ -51,7 +51,7 @@ namespace ProjectSchool2026.Player
 
 			if (_canInteract && _isInteracting)
 			{
-				InteractionManager.Instance.InteractWithArtifact(_currentArtifactItem);
+				InteractionManager.Instance.InteractWithArtifact(this, _currentArtifactItem);
 				_canMove = false;
 				_rigidbody.linearVelocity = Vector2.zero;
 				_playerAnimation.AnimateMovement(Vector2.zero);

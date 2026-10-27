@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _ProjectSchool2026.UI.PopUp;
 using ProjectSchool2026.Artifact;
 using UnityEngine;
@@ -7,12 +8,28 @@ namespace ProjectSchool2026.Manager
 {
     public class InteractionManager : MonoBehaviour
     {
-        [SerializeField] private PopUpView _challengeView;
-        [SerializeField] private Player.Player _player;
-        
-        private ArtifactItem _currentArtifactItem;
-        
-        public static InteractionManager Instance;
+        [Header("Scenes")]
+        [SerializeField] private string _mapSceneName = "TileMap";
+
+        [Header("Start PopUp")]
+        [SerializeField] private string _startButtonText = "Начать";
+
+        [Header("Result PopUp")]
+        [SerializeField] private string _winTitle = "Победа!";
+        [SerializeField, TextArea(2, 4)] private string _winDescription = "Ты набрал 100 очков. Артефакт твой!";
+        [SerializeField] private string _loseTitle = "Время вышло";
+        [SerializeField, TextArea(2, 4)] private string _loseDescription = "Очков не хватило." +
+                                                                           " Попробуй пройти испытание ещё раз.";
+        [SerializeField] private string _backButtonText = "Вернуться";
+
+        public static InteractionManager Instance { get; private set; }
+
+        private readonly HashSet<string> _completedArtifactIds = new HashSet<string>();
+
+        private string _currentArtifactId;
+        private string _currentChallengeSceneName;
+
+        private Player.Player _player;
 
         private void Awake()
         {
@@ -20,40 +37,71 @@ namespace ProjectSchool2026.Manager
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-
-                _challengeView?.gameObject.SetActive(false);
                 return;
             }
             Destroy(gameObject);
         }
 
-        public void InteractWithArtifact(ArtifactItem artifactItem)
+        public bool IsArtifactCompleted(string artifactId)
         {
-            if (_currentArtifactItem == null)
-            {
-                _challengeView?.SetInfo(artifactItem.ArtifactName, artifactItem.GameDescription);
-                _challengeView?.EnableView();
-                _currentArtifactItem = artifactItem;
-            }
+            return _completedArtifactIds.Contains(artifactId);
         }
 
-        public void ApplyArtifactChallenge()
+        public void InteractWithArtifact(Player.Player player, ArtifactItem artifactItem)
         {
-            Debug.Log("Applying artifact challenge");
-            if (_currentArtifactItem != null)
+            if (_currentArtifactId != null)
             {
-                SceneManager.LoadScene(_currentArtifactItem.SceneName);
+                return;
             }
+
+            _player = player;
+            _currentArtifactId = artifactItem.ArtifactId;
+            _currentChallengeSceneName = artifactItem.SceneName;
+
+            PopUpView.Instance.Show(artifactItem.ArtifactName, artifactItem.GameDescription, _startButtonText,
+                ApplyArtifactChallenge, CancelInteraction);
         }
 
-        public void CancelInteraction()
+        private void ApplyArtifactChallenge()
         {
-            _challengeView?.DisableView();
-            if (_player != null && _currentArtifactItem != null)
+            PopUpView.Instance.Hide();
+            SceneManager.LoadScene(_currentChallengeSceneName);
+        }
+
+        private void CancelInteraction()
+        {
+            PopUpView.Instance.Hide();
+
+            if (_player != null)
             {
                 _player.AllowMovement();
-                _currentArtifactItem = null;
             }
+
+            _player = null;
+            _currentArtifactId = null;
+        }
+
+        public void FinishChallenge(bool isWin)
+        {
+            if (isWin && _currentArtifactId != null)
+            {
+                _completedArtifactIds.Add(_currentArtifactId);
+            }
+
+            string title = isWin ? _winTitle : _loseTitle;
+            string description = isWin ? _winDescription : _loseDescription;
+
+            PopUpView.Instance.Show(title, description, _backButtonText, ReturnToMap);
+        }
+
+        private void ReturnToMap()
+        {
+            PopUpView.Instance.Hide();
+
+            _player = null;
+            _currentArtifactId = null;
+
+            SceneManager.LoadScene(_mapSceneName);
         }
     }
 }
