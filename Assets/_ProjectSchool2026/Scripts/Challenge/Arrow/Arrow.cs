@@ -3,18 +3,16 @@ using UnityEngine;
 
 namespace ProjectSchool2026.Challenge.Arrow
 {
-    public class Arrow : MonoBehaviour
+    public class Arrow : BootBehaviour
     {
-        [SerializeField] private ChallengeBootstrap _bootstrap;
-        
         [SerializeField, Range(-360f, 360f)] private float _speed;
 
         private bool _isRotating;
         
-        private void Awake()
+        public override void Boot(ChallengeBootstrap bootstrap)
         {
-            _bootstrap.OnChallengeStarted += StartRotate;
-            _bootstrap.OnClick += TrySelectZone;
+            StartRotate();
+            bootstrap.OnClick += TrySelectZone;
         }
 
         private void StartRotate()
@@ -26,8 +24,6 @@ namespace ProjectSchool2026.Challenge.Arrow
         {
             
         }
-        
-        private
 
         private void Update()
         {

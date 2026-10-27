@@ -3,16 +3,14 @@ using UnityEngine;
 
 namespace ProjectSchool2026.Challenge.UI
 {
-    public class HintsUI : MonoBehaviour
+    public class HintsUI : BootBehaviour
     {
-        [SerializeField] private ChallengeBootstrap _bootstrap;
-        
         [SerializeField] private RectTransform[] _hintsToDisableAfterStart;
         [SerializeField] private RectTransform[] _hintsToEnableAfterStart;
-        
-        private void Awake()
+
+        public override void Boot(ChallengeBootstrap bootstrap)
         {
-            _bootstrap.OnChallengeStarted += DisableAndEnableHints;
+            DisableAndEnableHints();
         }
 
         private void DisableAndEnableHints()

@@ -795,7 +795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce19527d0b04479a32c94b47b6df77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Challenge.Timer.ChallengeTimer
-  _bootstrap: {fileID: 1892421736}
   _imageFilling: {fileID: 197281218}
   _totalTime: 60
   _timeStep: 6
@@ -2382,7 +2381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093f26a7bbaa4c539df5dc37ff80bfc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Challenge.Arrow.Arrow
-  _bootstrap: {fileID: 1892421736}
   _speed: -270
 --- !u!1 &1466751234
 GameObject:
@@ -2573,7 +2571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc01f3036fcc49ddb7ee4264d4aaf1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Challenge.UI.HintsUI
-  _bootstrap: {fileID: 1892421736}
   _hintsToDisableAfterStart:
   - {fileID: 1564925296}
   - {fileID: 1371645608}
@@ -2644,6 +2641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada9ee97b84a4d2eb0b030550363f01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSchool2026.Challenge.Bootstrap.ChallengeBootstrap
+  _bootObjects:
+  - {fileID: 1434183928}
+  - {fileID: 352191256}
+  - {fileID: 1523550855}
 --- !u!4 &1892421737
 Transform:
   m_ObjectHideFlags: 0

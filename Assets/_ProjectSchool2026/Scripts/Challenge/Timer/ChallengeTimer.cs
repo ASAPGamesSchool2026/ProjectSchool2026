@@ -4,10 +4,8 @@ using UnityEngine.UI;
 
 namespace ProjectSchool2026.Challenge.Timer
 {
-    public class ChallengeTimer : MonoBehaviour
+    public class ChallengeTimer : BootBehaviour
     {
-        [SerializeField] private ChallengeBootstrap _bootstrap;
-        
         [SerializeField] private Image _imageFilling;
 
         [Header("Timer Settings")] 
@@ -18,10 +16,10 @@ namespace ProjectSchool2026.Challenge.Timer
 
         private bool _timerRunning;
 
-        private void Awake()
+        public override void Boot(ChallengeBootstrap bootstrap)
         {
             _currentTime = _totalTime;
-            _bootstrap.OnChallengeStarted += StartTimer;
+            StartTimer();
         }
 
         private void StartTimer()
