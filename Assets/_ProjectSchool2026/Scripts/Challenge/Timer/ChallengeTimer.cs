@@ -1,4 +1,4 @@
-﻿using ProjectSchool2026.Challenge.Bootstrap;
+﻿using ProjectSchool2026.Challenge.Behaviour;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +16,7 @@ namespace ProjectSchool2026.Challenge.Timer
 
         private bool _timerRunning;
 
-        public override void Boot(ChallengeBootstrap bootstrap)
+        public override void Boot()
         {
             _currentTime = _totalTime;
             StartTimer();

@@ -1,16 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using ProjectSchool2026.Challenge.Behaviour;
 
 namespace ProjectSchool2026.Challenge.Bootstrap
 {
     public class ChallengeBootstrap : MonoBehaviour
     {
         [SerializeField] private BootBehaviour[] _bootObjects;
-        
-        private bool _isChallengeStarted = false;
 
-        public event Action OnClick;
+        private bool _isChallengeStarted;
 
         private void Awake()
         {
@@ -25,13 +23,9 @@ namespace ProjectSchool2026.Challenge.Bootstrap
 
                 foreach (BootBehaviour bootObject in _bootObjects)
                 {
-                    bootObject.Boot(this);
+                    bootObject.Boot();
                 }
-                
-                return;
             }
-            
-            OnClick?.Invoke();
         }
 
         private void AppendAllBootObjects()

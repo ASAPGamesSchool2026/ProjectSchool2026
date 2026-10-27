@@ -1,18 +1,25 @@
-﻿using ProjectSchool2026.Challenge.Bootstrap;
+﻿using ProjectSchool2026.Challenge.Behaviour;
+using ProjectSchool2026.Challenge.Circle;
 using UnityEngine;
 
 namespace ProjectSchool2026.Challenge.Arrow
 {
-    public class Arrow : BootBehaviour
+    public class Arrow : ClickableBehaviour
     {
+        [SerializeField] private CircleZone _circleZone;
+        
         [SerializeField, Range(-360f, 360f)] private float _speed;
 
         private bool _isRotating;
         
-        public override void Boot(ChallengeBootstrap bootstrap)
+        public override void Boot()
         {
             StartRotate();
-            bootstrap.OnClick += TrySelectZone;
+        }
+
+        public override void ClickHandler()
+        {
+            TrySelectZone();
         }
 
         private void StartRotate()
@@ -22,7 +29,37 @@ namespace ProjectSchool2026.Challenge.Arrow
 
         private void TrySelectZone()
         {
+            bool isArrowInDefaultZone = CheckArrowInsideZone(_circleZone.DefaultZoneCenter,
+                _circleZone.DefaultZoneWidth);
             
+            bool isArrowInHardZone = CheckArrowInsideZone(_circleZone.HardZoneCenter, _circleZone.HardZoneWidth);
+
+            if (isArrowInDefaultZone)
+            {
+                Debug.Log("Попал в Default Zone");
+                return;
+            }
+
+            if (isArrowInHardZone)
+            {
+                Debug.Log("Попал в Hard Zone");
+                return;
+            }
+            
+            Debug.Log("Попал в белую зону");
+        }
+
+        private bool CheckArrowInsideZone(float zoneCenter, float zoneWidth)
+        {
+            // Угол стрелки как на часах (0 = верх, по часовой стрелке), как и у зон.
+            // Минус, потому что в Unity Z идет против часовой стрелки
+            float arrowAngle = -transform.localEulerAngles.z;
+
+            // DeltaAngle — кратчайшая разница между углами
+            float difference = Mathf.Abs(Mathf.DeltaAngle(arrowAngle, zoneCenter));
+
+            // Стрелка внутри зоны, если отклонилась от центра не больше чем на половину ширины
+            return difference <= zoneWidth / 2f;
         }
 
         private void Update()

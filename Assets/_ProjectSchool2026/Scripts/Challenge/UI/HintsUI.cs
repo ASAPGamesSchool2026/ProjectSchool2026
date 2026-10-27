@@ -1,4 +1,4 @@
-﻿using ProjectSchool2026.Challenge.Bootstrap;
+﻿using ProjectSchool2026.Challenge.Behaviour;
 using UnityEngine;
 
 namespace ProjectSchool2026.Challenge.UI
@@ -8,7 +8,7 @@ namespace ProjectSchool2026.Challenge.UI
         [SerializeField] private RectTransform[] _hintsToDisableAfterStart;
         [SerializeField] private RectTransform[] _hintsToEnableAfterStart;
 
-        public override void Boot(ChallengeBootstrap bootstrap)
+        public override void Boot()
         {
             DisableAndEnableHints();
         }
