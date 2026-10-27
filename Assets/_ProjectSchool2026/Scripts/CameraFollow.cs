@@ -10,7 +10,14 @@ namespace ProjectSchool2026
 
 		private void LateUpdate()
 		{
-			// Обновите положение камеры относительно игрока.
+			if (!_target) { return; }
+			
+			var desiredPosition = _target.position + _offset;
+			transform.position = Vector3.Lerp(
+				transform.position,
+				desiredPosition, 
+				_smoothSpeed * Time.deltaTime
+				);
 		}
 	}
 }

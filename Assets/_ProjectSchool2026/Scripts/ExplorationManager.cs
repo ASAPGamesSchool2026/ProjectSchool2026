@@ -7,9 +7,9 @@ namespace ProjectSchool2026
 	{
 		[SerializeField] private List<ArtifactItem> _requiredArtifacts = new List<ArtifactItem>();
 		[SerializeField] private ArtifactCounterView _counterView;
+		[SerializeField] private GameObject _victoryMessage;
 
 		private readonly HashSet<ArtifactItem> _collectedArtifacts = new HashSet<ArtifactItem>();
-
 		public static ExplorationManager Instance { get; private set; }
 
 		public int CollectedArtifactCount => _collectedArtifacts.Count;
@@ -29,6 +29,11 @@ namespace ProjectSchool2026
 
 		private void Start()
 		{
+			if (_victoryMessage != null)
+			{
+				_victoryMessage.SetActive(false);
+			}
+			
 			UpdateCounter();
 		}
 
@@ -47,6 +52,11 @@ namespace ProjectSchool2026
 
 			UpdateCounter();
 
+			if (_victoryMessage != null && AreAllArtifactsCollected())
+			{
+				_victoryMessage.SetActive(true);
+			}
+			
 			return true;
 		}
 
