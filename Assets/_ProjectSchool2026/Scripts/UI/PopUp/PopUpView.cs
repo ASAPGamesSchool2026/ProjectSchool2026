@@ -40,7 +40,6 @@ namespace _ProjectSchool2026.UI.PopUp
 			StartCoroutine(DisableViewRoutine());
 		}
 
-		// После возвращения из испытания используем сохранённый менеджер.
 		public void ApplyArtifactChallenge()
 		{
 			InteractionManager.Instance?.ApplyArtifactChallenge();

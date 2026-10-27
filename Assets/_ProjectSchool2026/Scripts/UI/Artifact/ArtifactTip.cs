@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using ProjectSchool2026.Player;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -14,14 +14,5 @@ namespace ProjectSchool2026.Artifact
 		public string SceneName => _sceneName;
 		public string ArtifactName => _artifactName;
 		public string GameDescription => _gameDescription;
-
-		private void Start()
-		{
-			if (InteractionManager.Instance != null
-			    && InteractionManager.Instance.IsArtifactCollected(_artifactId))
-			{
-				gameObject.SetActive(false);
-			}
-		}
 	}
 }
