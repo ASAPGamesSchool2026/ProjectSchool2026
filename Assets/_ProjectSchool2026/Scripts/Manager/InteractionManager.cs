@@ -31,6 +31,7 @@ namespace ProjectSchool2026.Manager
         {
             if (_currentArtifactItem == null)
             {
+                _challengeView?.SetInfo(artifactItem.ArtifactName, artifactItem.GameDescription);
                 _challengeView?.EnableView();
                 _currentArtifactItem = artifactItem;
             }
