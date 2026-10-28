@@ -48,10 +48,17 @@ namespace ProjectSchool2026.Player
 		public void SetInteracting(bool isInteracting)
 		{
 		    _isInteracting = isInteracting;
+			
+			if (_canInteract && _isInteracting)
+			{
+				InteractionManager.Instance.InteractWithArtifact(_currentArtifactItem);
+				_canMove = false;
+			}
 		}
 
 		public void AllowMovement()
 		{
+			_canMove = true;
 		}
 
 		private void AnimateByInputDirection(Vector2 inputDirection)
@@ -72,10 +79,22 @@ namespace ProjectSchool2026.Player
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
+			ArtifactItem artifact = other.GetComponent<ArtifactItem>();
+			if (artifact != null)
+			{
+				_currentArtifactItem = artifact;
+				_canInteract = true;
+			}
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
+			ArtifactItem artifact = other.GetComponent<ArtifactItem>();
+			if (artifact != null)
+			{
+				_currentArtifactItem = null;
+				_canInteract = false;
+			}
 		}
 
 		private void OnDisable()

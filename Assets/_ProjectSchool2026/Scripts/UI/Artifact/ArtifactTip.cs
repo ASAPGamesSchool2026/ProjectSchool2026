@@ -20,18 +20,41 @@ namespace ProjectSchool2026.UI.Artifact
 
         private void Awake()
         {
-            
+            _canvas.gameObject.SetActive(false);
+
+            _originalScale = _imageTip.transform.localScale;
+
+            _sequence = DOTween.Sequence()
+                .Append(_imageTip.transform.DOScale(_animationScale, animationDuration))
+                .Append(_imageTip.transform.DOScale(_originalScale, animationDuration))
+                .SetLoops(-1, LoopType.Yoyo);
         }
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            
+            Player.Player player = other.gameObject.GetComponentInParent<Player.Player>();
+
+            if (player != null)
+            {
+                _canvas.gameObject.SetActive(true);
+                if (!_sequence.IsPlaying())
+                {
+                    _sequence.Play();
+                }
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            
+            Player.Player player = other.gameObject.GetComponentInParent<Player.Player>();
+
+            if (player != null)
+            {
+                _sequence.Pause();
+                _canvas.gameObject.SetActive(false);
+                _imageTip.transform.localScale = _originalScale;
+            }
         }
     }
 }
