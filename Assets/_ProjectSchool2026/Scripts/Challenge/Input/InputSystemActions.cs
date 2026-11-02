@@ -1044,6 +1044,17 @@ namespace ProjectSchool2026.Challenge.Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b3285a58-e4ed-48ec-a85d-5546c92542be"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""38c99815-14ea-4617-8627-164d27641299"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",

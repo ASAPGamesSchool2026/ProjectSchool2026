@@ -1,11 +1,10 @@
-﻿using System;
-using ProjectSchool2026.Challenge.Bootstrap;
+﻿using ProjectSchool2026.Challenge.Behaviour;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ProjectSchool2026.Challenge.Timer
 {
-    public class ChallengeTimer : BootBehavior
+    public class ChallengeTimer : BootBehaviour
     {
         [Header("Timer Settings")]
         [SerializeField] private Image _timerImage;
