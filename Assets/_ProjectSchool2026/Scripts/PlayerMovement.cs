@@ -8,6 +8,7 @@ namespace ProjectSchool2026
 	{
 		[SerializeField][Min(0f)] private float _moveSpeed = 4f;
 		[SerializeField] private Rigidbody2D _rigidbody;
+		[SerializeField] private PlayerAnimation _playerAnimaton;
 
 		private Vector2 _inputDirection;
 
@@ -25,6 +26,7 @@ namespace ProjectSchool2026
 		public void OnMove(InputAction.CallbackContext context)
 		{
 			_inputDirection = context.ReadValue<Vector2>();
+			_playerAnimaton.PlayAnimation(_inputDirection);
 		}
 
 		private void FixedUpdate()
