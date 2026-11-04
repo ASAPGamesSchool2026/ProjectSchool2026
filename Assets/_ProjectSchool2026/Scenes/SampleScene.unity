@@ -640,6 +640,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5425541ad28f68a4aaa58eab09b8b58d, type: 3}
+--- !u!114 &339898176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2059874033526555064, guid: 5425541ad28f68a4aaa58eab09b8b58d, type: 3}
+  m_PrefabInstance: {fileID: 339898175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df6deb0bfaf4fc4a4004d6212549ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactItem
 --- !u!1001 &447746190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1684,6 +1695,7 @@ MonoBehaviour:
   - {fileID: 2106001001}
   - {fileID: 2106001002}
   - {fileID: 2106001003}
+  - {fileID: 339898176}
   _counterView: {fileID: 1620292609}
 --- !u!4 &1119610175
 Transform:
@@ -1851,7 +1863,7 @@ GameObject:
   - component: {fileID: 1485363234}
   - component: {fileID: 1485363233}
   m_Layer: 0
-  m_Name: Tree_trunk_01_0
+  m_Name: TreeTrunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2290,6 +2302,7 @@ SceneRoots:
   - {fileID: 820974123}
   - {fileID: 215179803}
   - {fileID: 335259337}
+  - {fileID: 1485363235}
   - {fileID: 563242233}
   - {fileID: 1119610175}
   - {fileID: 765726055}
@@ -2297,5 +2310,4 @@ SceneRoots:
   - {fileID: 164812434084276537}
   - {fileID: 447746190}
   - {fileID: 1799831360}
-  - {fileID: 1485363235}
   - {fileID: 339898175}
