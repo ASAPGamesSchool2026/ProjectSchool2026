@@ -16,9 +16,16 @@ namespace ProjectSchool2026
 			}
 		}
 
-		public void ShowProgress(int collectedArtifactCount, int totalArtifactCount)
+		public void ShowProgress(int collectedArtifactCount, int totalArtifactCount, bool victory)
 		{
-			_progressText.text = $"{collectedArtifactCount}/{totalArtifactCount}";
+			if (!victory)
+			{
+				_progressText.text = $"Артефакты:   {collectedArtifactCount}/{totalArtifactCount}";
+			}
+			else
+			{
+				_progressText.text = "Победа! Вы собрали все артефакты.";
+			}
 		}
 	}
 }

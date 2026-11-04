@@ -72,7 +72,7 @@ namespace ProjectSchool2026
 		{
 			if (_counterView != null)
 			{
-				_counterView.ShowProgress(CollectedArtifactCount, TotalArtifactCount);
+				_counterView.ShowProgress(CollectedArtifactCount, TotalArtifactCount, AreAllArtifactsCollected());
 			}
 		}
 
