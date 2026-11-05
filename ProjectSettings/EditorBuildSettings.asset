@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_ProjectSchool2026/Scenes/TileMap.unity
     guid: 6866569bee8500d4184d1cc26efb9819
+  - enabled: 1
+    path: Assets/_ProjectSchool2026/Scenes/ChallengeScene.unity
+    guid: de94105f32d78414c86f9fb84e88c14d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

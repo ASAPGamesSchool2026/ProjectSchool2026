@@ -5,7 +5,7 @@ namespace ProjectSchool2026.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] Player _player;
+        [SerializeField] private Player _player;
         
         private Vector2 _inputDirection;
         private bool _isInteracting;
@@ -18,6 +18,8 @@ namespace ProjectSchool2026.Player
 
         public void OnInteract(InputAction.CallbackContext context)
         {
+            _isInteracting = context.ReadValueAsButton();
+            _player.SetInteracting(_isInteracting);
         }
     }
 }
