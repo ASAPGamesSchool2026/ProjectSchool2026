@@ -81,8 +81,25 @@ namespace ProjectSchool2026.Manager
             _currentArtifactId = null;
         }
 
+        public void CancelCurrentInteraction()
+        {
+            _player = null;
+            _currentArtifactId = null;
+            _currentChallengeSceneName = null;
+
+            if (PopUpView.Instance != null)
+            {
+                PopUpView.Instance.HideImmediately();
+            }
+        }
+
         public void FinishChallenge(bool isWin)
         {
+            if (_currentArtifactId == null)
+            {
+                return;
+            }
+
             if (isWin && _currentArtifactId != null)
             {
                 _completedArtifactIds.Add(_currentArtifactId);

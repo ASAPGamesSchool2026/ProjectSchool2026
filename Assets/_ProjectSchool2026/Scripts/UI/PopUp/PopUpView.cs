@@ -74,6 +74,15 @@ namespace _ProjectSchool2026.UI.PopUp
 			}
 		}
 
+		public void HideImmediately()
+		{
+			StopAllCoroutines();
+			transform.DOKill();
+			_onConfirm = null;
+			_onCancel = null;
+			gameObject.SetActive(false);
+		}
+
 		private void Confirm()
 		{
 			_onConfirm?.Invoke();
