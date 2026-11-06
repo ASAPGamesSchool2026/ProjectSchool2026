@@ -35,7 +35,7 @@ namespace ProjectSchool2026.Challenge.Manager
 
         private void ReduceScores()
         {
-            if ((int)(_totalScore - _penaltyScores) < 0)
+            if (_totalScore < _penaltyScores)
             {
                 _totalScore = 0;
                 _scoreText.text = $"{_totalScore}";

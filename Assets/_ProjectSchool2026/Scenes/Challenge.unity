@@ -815,7 +815,7 @@ MonoBehaviour:
   _arrow: {fileID: 1434183928}
   _imageFilling: {fileID: 197281218}
   _totalTime: 60
-  _timeStep: 2
+  _timeStep: 1
   _bonusTime: 4
   _penaltyTime: 2
 --- !u!1 &360068818

@@ -11,7 +11,7 @@ namespace ProjectSchool2026.Challenge.Timer
         
         [SerializeField] private Image _imageFilling;
 
-        [Header("Timer Settings")] 
+        [Header("Timer Settings")]
         [SerializeField, Range(10f, 100f)] private float _totalTime;
         [SerializeField, Range(0.001f, 100f)] private float _timeStep;
         
@@ -21,65 +21,75 @@ namespace ProjectSchool2026.Challenge.Timer
         
         private float _currentTime;
 
-        private bool _timerRunning;
+        private bool _IsTimerRunning;
 
         public event Action OnTimeIsUp;
 
         public override void Boot()
         {
             _arrow.OnHardZoneSelected += IncreaseTimeForSelection;
+            _arrow.OnWhiteZoneSelected += ReduceTimeForSelection;
             _currentTime = _totalTime;
+            _imageFilling.fillAmount = 1f;
             StartTimer();
         }
 
         private void StartTimer()
         {
-            _timerRunning = true;
+            _IsTimerRunning = true;
         }
 
         public void StopTimer()
         {
-            _timerRunning = false;
+            _IsTimerRunning = false;
         }
 
         private void Update()
         {
-            if (_timerRunning)
+            if (_IsTimerRunning)
             {
-                _currentTime -= _timeStep * Time.deltaTime;
+                _currentTime = Mathf.Max(0f, _currentTime - _timeStep * Time.deltaTime);
                 _imageFilling.fillAmount = _currentTime / _totalTime;
-
-                if (_currentTime <= 0)
-                {
-                    _timerRunning = false;
-                    _currentTime = 0;
-                    _imageFilling.fillAmount = 0f;
-                    OnTimeIsUp?.Invoke();
-                }
+                CheckTimeIsUp();
             }
         }
 
         private void IncreaseTimeForSelection()
         {
-            _currentTime += _bonusTime;
-
-            if (_currentTime >= _totalTime)
+            if (!_IsTimerRunning)
             {
-                _currentTime = _totalTime;
+                return;
             }
+
+            _currentTime = Mathf.Min(_totalTime, _currentTime + _bonusTime);
             _imageFilling.fillAmount = _currentTime / _totalTime;
         }
 
         private void ReduceTimeForSelection()
         {
-            _currentTime -= _penaltyTime;
-
-            if (_currentTime < 0)
+            if (!_IsTimerRunning)
             {
-                _currentTime = 0;
+                return;
             }
-            
+
+            _currentTime = Mathf.Max(0f, _currentTime - _penaltyTime);
             _imageFilling.fillAmount = _currentTime / _totalTime;
+            CheckTimeIsUp();
+        }
+
+        private void CheckTimeIsUp()
+        {
+            if (_IsTimerRunning && _currentTime <= 0f)
+            {
+                StopTimer();
+                OnTimeIsUp?.Invoke();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            _arrow.OnHardZoneSelected -= IncreaseTimeForSelection;
+            _arrow.OnWhiteZoneSelected -= ReduceTimeForSelection;
         }
     }
 }
