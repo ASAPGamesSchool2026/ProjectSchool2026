@@ -1999,7 +1999,7 @@ GameObject:
   - component: {fileID: 1569494442}
   - component: {fileID: 1569494441}
   m_Layer: 0
-  m_Name: Eyebrow
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
