@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_ProjectSchool2026/Scenes/MainMenu.unity
+    guid: 056f5b38f4706754b853d7d826a3a3e7
+  - enabled: 1
     path: Assets/_ProjectSchool2026/Scenes/TileMap.unity
     guid: 6866569bee8500d4184d1cc26efb9819
   - enabled: 1
