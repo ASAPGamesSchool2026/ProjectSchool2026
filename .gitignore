@@ -5,6 +5,7 @@
 
 # Visual Studio cache/options directory
 .vs/
+.vscode/
 
 # User-specific files
 *.suo
@@ -47,6 +48,7 @@ publish/
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 
 ### Windows
